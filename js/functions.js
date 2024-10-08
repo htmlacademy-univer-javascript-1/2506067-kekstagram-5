@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-function isLonger(str, length) {
+function checkIsLonger(str, length) {
   if (str.length <= length) {
     return true;
   } else {
@@ -7,7 +7,7 @@ function isLonger(str, length) {
   }
 }
 
-function isPalindrom(str) {
+function checkIsPalindrom(str) {
   const helpStr = str.toLowerCase().replaceAll(' ', '');
   let helpStr2 = '';
   for (let i = helpStr.length - 1; i >= 0; i--) {
@@ -20,7 +20,7 @@ function isPalindrom(str) {
   }
 }
 
-function isInteger(str) {
+function checkIsInteger(str) {
   const result = str.toString().replace(/\D/g,'');
   if (result.length > 0) {
     return result;
