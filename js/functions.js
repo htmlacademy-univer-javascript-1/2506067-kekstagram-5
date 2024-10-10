@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-let checkIsLonger = (str, length) => {
+const checkIsLonger = (str, length) => {
   if (str.length <= length) {
     return true;
   } else {
@@ -7,7 +7,7 @@ let checkIsLonger = (str, length) => {
   }
 }
 
-let checkIsPalindrom = (str) => {
+const checkIsPalindrom = (str) => {
   const helpStr = str.toLowerCase().replaceAll(' ', '');
   let helpStr2 = '';
   for (let i = helpStr.length - 1; i >= 0; i--) {
@@ -20,7 +20,7 @@ let checkIsPalindrom = (str) => {
   }
 }
 
-let checkIsInteger = (str) => {
+const checkIsInteger = (str) => {
   const result = str.toString().replace(/\D/g,'');
   if (result.length > 0) {
     return result;
