@@ -5,7 +5,7 @@ const checkIsLonger = (str, length) => {
   } else {
     return false;
   }
-}
+};
 
 const checkIsPalindrom = (str) => {
   const helpStr = str.toLowerCase().replaceAll(' ', '');
@@ -18,7 +18,7 @@ const checkIsPalindrom = (str) => {
   } else {
     return false;
   }
-}
+};
 
 const checkIsInteger = (str) => {
   const result = str.toString().replace(/\D/g,'');
@@ -27,4 +27,4 @@ const checkIsInteger = (str) => {
   } else {
     return NaN;
   }
-}
+};
