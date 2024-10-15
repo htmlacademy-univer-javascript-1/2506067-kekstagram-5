@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -27,26 +28,26 @@ const generatePhotosArray = () => {
   for (let i = 0; i < 25; i++) {
     const photo = {
       id: i,
-      url: 'photos/' + i + '.jpg',
-      description: 'Описание фотографии ' + i,
+      url: `photos/${i}.jpg`,
+      description: `Описание фотографии ${i}`,
       likes: getRandomInt(15, 200),
       comments: []
     };
     const commentCount = getRandomInt(0, 30);
     const commentIdSet = new Set();
     for (let j = 0; j < commentCount; j++) {
-        let commentId;
-        do {
-            commentId = getRandomInt(1, 1000);
-        } while (commentIdSet.has(commentId));
-          commentIdSet.add(commentId);
-        const comment = {
-            id: commentId,
-            avatar: 'img/avatar-' + getRandomInt(1, 6) + '.svg',
-            message: toString(messages[getRandomInt(0, messages.length - 1)]),
-            name: toString(names[getRandomInt(0, names.length - 1)])
-        };
-        photo.comments.push(comment);
+      let commentId;
+      do {
+        commentId = getRandomInt(1, 1000);
+      } while (commentIdSet.has(commentId));
+      commentIdSet.add(commentId);
+      const comment = {
+        id: commentId,
+        avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
+        message: toString(messages[getRandomInt(0, messages.length - 1)]),
+        name: toString(names[getRandomInt(0, names.length - 1)])
+      };
+      photo.comments.push(comment);
     }
     photos.push(photo);
   }
