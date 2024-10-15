@@ -1,7 +1,5 @@
 /* eslint-disable no-unused-vars */
-const getRandomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
 const names = [
   'Артём',
