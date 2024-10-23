@@ -36,10 +36,10 @@ const generatePhotosArray = () => {
     const commentCount = getRandomInt(0, 30);
     const commentIdSet = new Set();
     for (let j = 0; j < commentCount; j++) {
-      let commentId;
-      do {
+      let commentId = getRandomInt(1, 1000);
+      while (commentIdSet.has(commentId)) {
         commentId = getRandomInt(1, 1000);
-      } while (commentIdSet.has(commentId));
+      }
       commentIdSet.add(commentId);
       const comment = {
         id: commentId,
