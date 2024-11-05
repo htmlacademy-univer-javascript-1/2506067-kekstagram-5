@@ -1,17 +1,15 @@
 export const renderPhotos = (photosArray) => {
-  const template = document.getElementById('picture');
   const picturesContainer = document.querySelector('.pictures');
-  const fragment = document.createDocumentFragment();
+  const template = document.getElementById('picture');
   photosArray.forEach((photo) => {
-    const clone = document.importNode(template.content, true);
-    const img = clone.querySelector('.picture__img');
+    const pictureElement = template.content.cloneNode(true);
+    const img = pictureElement.querySelector('.picture__img');
+    const likesSpan = pictureElement.querySelector('.picture__likes');
+    const commentsSpan = pictureElement.querySelector('.picture__comments');
     img.src = photo.url;
     img.alt = photo.description;
-    const likesSpan = clone.querySelector('.picture__likes');
-    likesSpan.textContent = `${photo.likes}`;
-    const commentsSpan = clone.querySelector('.picture__comments');
-    commentsSpan.textContent = `${photo.comments.length}`;
-    fragment.appendChild(clone);
+    likesSpan.textContent = photo.likes;
+    commentsSpan.textContent = photo.comments.length;
+    picturesContainer.appendChild(pictureElement);
   });
-  picturesContainer.appendChild(fragment);
 };
