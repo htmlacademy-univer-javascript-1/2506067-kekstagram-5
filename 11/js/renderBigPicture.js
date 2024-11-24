@@ -1,4 +1,4 @@
-import { generatePhotosArray } from './photos.js';
+import { photosArray } from './main.js';
 
 const renderBigPicture = (photo) => {
   const bigPicture = document.querySelector('.big-picture');
@@ -7,12 +7,12 @@ const renderBigPicture = (photo) => {
   const likesCount = bigPicture.querySelector('.likes-count');
   const commentsCount = bigPicture.querySelector('.comments-count');
   const commentsList = bigPicture.querySelector('.social__comments');
+  const pictureInfo = document.querySelectorAll('.picture__likes');
   img.src = photo.url;
   img.alt = photo.description;
   caption.textContent = photo.description;
   likesCount.textContent = photo.likes;
   commentsCount.textContent = photo.comments.length;
-
   photo.comments.forEach((comment) => {
     const commentElement = document.createElement('li');
     commentElement.classList.add('social__comment');
@@ -24,9 +24,20 @@ const renderBigPicture = (photo) => {
   });
 
   const likesBigSpan = document.querySelector('.likes-count');
+  let isLiked = false;
+
   likesBigSpan.addEventListener('click', () => {
-    photo.likes += 1;
-    likesBigSpan.textContent = photo.likes;
+    if (!isLiked) {
+      photo.likes += 1;
+      pictureInfo[photo.id - 1].textContent = parseInt(pictureInfo[photo.id - 1].textContent, 10) + 1;
+      likesBigSpan.textContent = photo.likes;
+      isLiked = true;
+    } else {
+      photo.likes -= 1;
+      pictureInfo[photo.id - 1].textContent = parseInt(pictureInfo[photo.id - 1].textContent, 10) - 1;
+      likesBigSpan.textContent = photo.likes;
+      isLiked = false;
+    }
   });
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
@@ -45,7 +56,6 @@ picturesContainer.addEventListener('click', (event) => {
     return;
   }
   const photoId = picture.dataset.photoId;
-  const photosArray = generatePhotosArray();
   const photo = photosArray.find((p) => p.id === +photoId);
   if (photo) {
     renderBigPicture(photo);
