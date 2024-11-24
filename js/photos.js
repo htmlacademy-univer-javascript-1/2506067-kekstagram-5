@@ -5,9 +5,9 @@ export const generatePhotosArray = () => {
   const photos = [];
   for (let i = 0; i < 25; i++) {
     const photo = {
-      id: i,
-      url: `photos/${i}.jpg`,
-      description: `Описание фотографии ${i}`,
+      id: i + 1,
+      url: `photos/${i + 1}.jpg`,
+      description: `Описание фотографии ${i + 1}`,
       likes: getRandomInt(15, 200),
       comments: []
     };
