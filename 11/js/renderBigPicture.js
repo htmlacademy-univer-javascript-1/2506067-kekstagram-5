@@ -56,7 +56,7 @@ picturesContainer.addEventListener('click', (event) => {
     return;
   }
   const photoId = picture.dataset.photoId;
-  const photo = photosArray.find((p) => p.id === +photoId);
+  const photo = photosArray.find((item) => item.id === +photoId);
   if (photo) {
     renderBigPicture(photo);
   }
