@@ -22,8 +22,8 @@ export const generatePhotosArray = () => {
       const comment = {
         id: commentId,
         avatar: `img/avatar-${getRandomInt(1, 6)}.svg`,
-        message: toString(messages[getRandomInt(0, messages.length - 1)]),
-        name: toString(names[getRandomInt(0, names.length - 1)])
+        message: messages[getRandomInt(0, messages.length - 1)],
+        name: names[getRandomInt(0, names.length - 1)]
       };
       photo.comments.push(comment);
     }
