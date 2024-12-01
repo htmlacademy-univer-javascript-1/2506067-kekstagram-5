@@ -78,13 +78,10 @@ const renderBigPicture = (photo) => {
   commentsList.innerHTML = '';
   commentCount.textContent = `0 из ${photo.comments.length} комментариев`;
 
-  // Учитываем состояние лайка из объекта photo
   if (!Object.prototype.hasOwnProperty.call(currentPhoto, 'isLiked')) {
-    currentPhoto.isLiked = false; // Устанавливаем флаг isLiked, если он отсутствует
+    currentPhoto.isLiked = false;
   }
-
   renderComments();
-
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
   document.addEventListener('keydown', onEscapeKeyDown);
