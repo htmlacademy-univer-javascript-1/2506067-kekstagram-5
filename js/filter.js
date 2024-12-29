@@ -1,5 +1,5 @@
 import {renderThumbnailElements} from './thumbnail.js';
-import {getRandomElementsArray, debounce} from './util.js';
+import {getRandomElementsArray, debounce} from './utils.js';
 
 const MAX_RANDOM_THUMBNAILS_COUNT = 10;
 const ACTIVE_CLASS = 'img-filters__button--active';
