@@ -1,4 +1,4 @@
-import { getRandomInteger } from './util.js';
+import { getRandomInteger } from './utils.js';
 import { COMMENTS, NAMES } from './data.js';
 
 export const generatePhotosArray = () => {
