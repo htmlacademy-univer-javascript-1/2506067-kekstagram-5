@@ -1,4 +1,4 @@
-const ServerUrl = 'https://29.javascript.htmlacademy.pro/kekstagram';
+const SERVER_URL = 'https://29.javascript.htmlacademy.pro/kekstagram';
 const ApiRoutes = {
   FetchData: '/data',
   SubmitData: '/'
@@ -15,7 +15,7 @@ const ErrorMessages = {
 };
 
 const fetchData = (route, errorMessage, method = HttpMethods.Get, requestBody = null) =>
-  fetch(`${ServerUrl}${route}`, { method, body: requestBody })
+  fetch(`${SERVER_URL}${route}`, { method, body: requestBody })
     .then((response) => {
       if (response.ok) {
         return response.json();
