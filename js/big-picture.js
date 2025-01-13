@@ -13,8 +13,9 @@ let displayedCommentsCount = 0;
 let allComments = [];
 
 const renderPictureDetails = ({ url, likes, description }) => {
-  bigPictureModal.querySelector('.big-picture__img img').src = url;
-  bigPictureModal.querySelector('.big-picture__img img').alt = description;
+  const imgBigPicuteModal = bigPictureModal.querySelector('.big-picture__img img');
+  imgBigPicuteModal.src = url;
+  imgBigPicuteModal.alt = description;
   bigPictureModal.querySelector('.likes-count').textContent = likes;
   bigPictureModal.querySelector('.social__caption').textContent = description;
 };
@@ -24,9 +25,9 @@ const createCommentElement = ({ name, avatar, message }) => {
   commentElement.innerHTML =
     '<img class="social__picture" src="" alt="" width="35" height="35"><p class="social__text"></p>';
   commentElement.classList.add('social__comment');
-
-  commentElement.querySelector('.social__picture').alt = name;
-  commentElement.querySelector('.social__picture').src = avatar;
+  const comElement = commentElement.querySelector('.social__picture');
+  comElement.alt = name;
+  comElement.src = avatar;
   commentElement.querySelector('.social__text').textContent = message;
 
   return commentElement;
