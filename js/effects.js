@@ -144,10 +144,10 @@ const onEffectChange = (evt) => {
   setEffect(evt.target.value);
 };
 
-function init() {
+const init = () => {
   hideSlide();
   setSlider();
   effectElement.addEventListener('change', onEffectChange);
-}
+};
 
 export { init, reset };
