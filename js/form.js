@@ -78,9 +78,16 @@ const showModal = (evt) => {
 const isTextFieldFocused = () => document.activeElement === hashtagField || document.activeElement === commentField;
 
 function onDocumentKeydown(evt) {
-  if (evt.key === 'Escape' && !isTextFieldFocused()) {
+  if (evt.key === 'Escape') {
     evt.preventDefault();
-    hideModal();
+    const errorPopup = document.querySelector('.error');
+    if (errorPopup) {
+      errorPopup.remove();
+      return;
+    }
+    if (!isTextFieldFocused()) {
+      hideModal();
+    }
   }
 }
 
